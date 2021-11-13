@@ -6,7 +6,7 @@ export const environment = {
     projectId: "shirt-tracker",
     storageBucket: "shirt-tracker.appspot.com",
     messagingSenderId: "112850782186",
-    appId: "1:112850782186:web:39805de8324c678d469493",
-    measurementId: "G-CRCZB4CHQY"
+    appId: "1:112850782186:web:87f001f8d7e719dd469493",
+    measurementId: "G-R9VEHPWJCB"
   }
 };
