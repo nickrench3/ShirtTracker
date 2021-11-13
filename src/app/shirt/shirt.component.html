@@ -1,0 +1,62 @@
+<section class="hero is-info is-bold">
+    <div class="hero-body">
+      <div class="container-title">  
+        <h1 class="title">Shirt Tracker</h1>  
+      </div>
+    </div>
+</section>
+<section class="section">
+  <div class="container">
+      <!-- form -->
+      <form #f="ngForm" (ngSubmit)="processForm()">
+        <!-- Number of items -->
+        <div class="items">
+          <h2>Number of items sold</h2>
+          <input 
+            type="number" 
+            name="itemsSold" 
+            class="input" 
+            placeholder="Number of items sold" 
+            [(ngModel)]="itemsSold"
+            required
+            minlength="1"
+            #itemsSoldInput="ngModel">
+          <div class="help is-error" *ngIf="itemsSoldInput.invalid && itemsSoldInput.dirty">
+            Number of items sold is required.
+          </div>
+          <div class="help is-error" *ngIf="itemsSold === 0">
+            Number of items must be greater than 0.
+          </div>
+        </div> 
+        <!-- Amount sold -->
+        <div class="amount">
+          <h2>Enter the amount sold</h2>
+          <input 
+            type="number" 
+            name="amount" 
+            class="input" 
+            placeholder="Dollar" 
+            [(ngModel)]="amount"
+            required
+            minlength="1"
+            #amountInput="ngModel">
+          <div class="help is-error" *ngIf="amountInput.invalid && amountInput.dirty">
+            Amount is required and needs to be at least 1 characters long.
+          </div>
+        </div>
+        <!-- Description -->
+        <div class="description">
+          <h2>Enter the description of the sale</h2>
+          <input 
+            type="text" 
+            name="description" 
+            class="input" 
+            placeholder="Description" 
+            [(ngModel)]="description"
+            minlength="1"
+            #descriptionInput="ngModel">
+        </div>     
+        <button type="submit" class="button is-danger is-medium" [disabled]="amount === null || amountInput.invalid || itemsSoldInput.invalid || itemsSold === 0">Submit</button>
+      </form>
+  </div>
+</section>
